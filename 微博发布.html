@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.all{
+			width: 500px;
+			height: 300px;
+			margin: 150px auto;
+			border: 1px solid;
+		}
+
+		textarea{
+  			resize : none;
+		}
+
+		#con{
+			width: 460px;
+			height: 50px;
+		}
+	</style>
+	<script type="text/javascript">
+		 window.onload=function(){
+			var txt=document.getElementById("txt");
+        		txt.focus();
+        	var btn=document.getElementById("btn");
+        	var con=document.getElementById("con");
+		
+		btn.onclick = function(){
+			if (txt.value !="") {
+                   var pobj=document.createElement("p");
+                   pobj.innerHTML=txt.value;
+                   pobj.className="pobj";
+                   var aobj=document.createElement("a"); 
+                   aobj.innerHTML= "删除";
+                   aobj.className="aobj";
+                   pobj.appendChild(aobj);
+                   con.insertBefore(pobj,con.children[0]);           
+        		};
+        		txt.value="";
+        		aobj.onclick=function(){
+        		    this.parentNode.style.display="none";
+        	    }
+
+		}
+	}
+	</script>
+</head>
+<body>
+	<div class="all">
+		<label for="txt">微博发布：</label>
+		<textarea rows="13" cols="40" id="txt"></textarea>
+		<button id="btn">提交</button>
+		<div id="con"></div>
+	</div>
+</body>
+</html>
